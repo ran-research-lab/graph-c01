@@ -16,6 +16,7 @@ public:
   void addEdge(int u, int v);
   bool isNeighboor(int u, int v) const;
   void BFS(int u) const;
+  string toString();
 };
 
 #endif

@@ -15,6 +15,7 @@ int Graph::getNumberOfVertices() const { return adjList.size(); }
 
 void Graph::addEdge(int u, int v) {
   adjList[u].push_back(v);
+  adjList[v].push_back(u);
 }
 
 bool Graph::isNeighboor(int u, int v) const {
@@ -23,6 +24,17 @@ bool Graph::isNeighboor(int u, int v) const {
   }
   return false;
 }
+
+string Graph::toString() {
+    string st;
+    for (int i = 0; i < adjList.size();i++) {
+        st = st + "adjList[" + to_string(i) + "]: ( ";
+        for (auto e: adjList[i]) st = st + to_string(e) + " ";
+        st = st + ")\n";
+    }
+    return st;
+}
+
 
 
 void Graph::BFS(int u) const {

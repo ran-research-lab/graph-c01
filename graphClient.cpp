@@ -17,6 +17,8 @@ TEST_CASE( "Pushing and popping to the AStack", "[AStack]" ) {
     G.setNumberOfVertices(10);
     for (auto e: tmp) G.addEdge(e[0],e[1]);
 
+    cout << G.toString() << endl;
+
     CHECK(G.isNeighboor(0,4) == true);
     CHECK(G.isNeighboor(0,3) == false);
 
