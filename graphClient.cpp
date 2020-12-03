@@ -23,4 +23,10 @@ TEST_CASE( "Pushing and popping to the AStack", "[AStack]" ) {
     CHECK(G.isNeighboor(0,3) == false);
 
     G.BFS(0);
+
+    // lets determine the distances from node 0
+    vector<int> d = G.distance(0);
+    int i = 0;
+    // lets compare them to the expected distances
+    for (auto e: {0, 1, 1, 2, 1, 2, 3, 2, 2, 3}) CHECK(e == d[i++]);
 }

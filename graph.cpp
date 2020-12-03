@@ -64,4 +64,30 @@ void Graph::BFS(int u) const {
     }
 }
 
+vector<int> Graph::distance(int u) const {
+    // vector to keep track of the visited nodes
+    vector<int> dist(adjList.size(), -1);
+
+    // the q to keep track of the order of visiting the nodes
+    queue<int> q;
+
+    // lets push the origin node and mark as visited
+    q.push(u);
+    dist[u] = 0;
+
+    while (!q.empty()) {
+        int v = q.front(); q.pop();
+
+        // lets push all the non-visited neighbors of v onto
+        // the queue and update their distances
+        for (auto e: adjList[v]) {
+            if (dist[e] == -1) {
+                dist[e] = dist[v] + 1;
+                q.push(e);
+            }
+        }
+    }
+    return dist;
+}
+
 
