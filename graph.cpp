@@ -1,5 +1,6 @@
 #include "graph.h"
 #include <queue>
+#include <vector>
 
 using namespace std;
 
@@ -27,7 +28,7 @@ bool Graph::isNeighboor(int u, int v) const {
 
 string Graph::toString() {
     string st;
-    for (int i = 0; i < adjList.size();i++) {
+    for (unsigned long i = 0; i < adjList.size();i++) {
         st = st + "adjList[" + to_string(i) + "]: ( ";
         for (auto e: adjList[i]) st = st + to_string(e) + " ";
         st = st + ")\n";
